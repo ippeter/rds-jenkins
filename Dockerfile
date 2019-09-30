@@ -10,7 +10,5 @@ COPY rds_tester.py rds_tester.py
 
 ENV FLASK_APP rds_tester.py
 
-EXPOSE 5000
-
 CMD ["flask", "run", "--host=0.0.0.0"]
 
