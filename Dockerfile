@@ -10,5 +10,5 @@ COPY rds_tester.py rds_tester.py
 
 ENV FLASK_APP rds_tester.py
 
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["python", "rds_tester.py"]
 
