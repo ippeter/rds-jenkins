@@ -23,7 +23,6 @@ def hello():
     
     # Proceed to the form
     form = ReusableForm(request.form)
- 
     print(form.errors)
     
     if (request.method == 'POST'):
@@ -34,7 +33,8 @@ def hello():
             m = re.search('^[1-2]?\d{1,2}\.[1-2]?\d{1,2}\.[1-2]?\d{1,2}\.[1-2]?\d{1,2}$', rds_ip)
             
             if (m):
-                flash('RDS IP is: ' + rds_ip)
+                # Pass RDS service IP to the template for rendering
+                flash(rds_ip)
                 
                 # Open connection to the mysql server
                 conn = mysql.connector.connect(host=rds_ip, user='root', password='Huawei@12')
