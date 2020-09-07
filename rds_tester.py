@@ -38,7 +38,7 @@ def hello():
                 flash(rds_ip)
                 
                 # Open connection to the mysql server
-                conn = mysql.connector.connect(host=rds_ip, user='root', password='Huawei@12')
+                conn = mysql.connector.connect(host=rds_ip, user='root', password='')
                 cursor = conn.cursor()
 
                 query = ("SHOW DATABASES")
