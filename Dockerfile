@@ -1,6 +1,6 @@
 FROM python:2.7.16-alpine3.9
 
-WORKDIR /root
+WORKDIR /app
 
 RUN mkdir templates
 COPY hello.html templates/hello.html
