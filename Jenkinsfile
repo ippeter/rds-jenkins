@@ -19,7 +19,7 @@ pipeline {
     stage('Push Image') {
       steps {
         script {
-          docker.withRegistry('swr.ru-moscow-1.hc.sbercloud.ru/cloud-devops/', swrCredentials ) {
+          docker.withRegistry('https://swr.ru-moscow-1.hc.sbercloud.ru/cloud-devops/', swrCredentials ) {
             dockerImage.push()
           }
         }
