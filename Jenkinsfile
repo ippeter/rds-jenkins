@@ -1,6 +1,7 @@
 pipeline {
   environment {
-    registry = "ippeter/rds-tester"
+    baseImage = "ippeter/rds-tester"
+    SWRCredentials = "SWRLogin2"
   }
   
   agent any
@@ -10,7 +11,17 @@ pipeline {
     stage('Build Image') {
       steps {
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build baseImage + ":$BUILD_NUMBER"
+        }
+      }
+    }
+    
+    stage('Push Image') {
+      steps {
+        script {
+          docker.withRegistry('swr.ru-moscow-1.hc.sbercloud.ru/cloud-devops/', SWRCredentials ) {
+            dockerImage.push()
+          }
         }
       }
     }
