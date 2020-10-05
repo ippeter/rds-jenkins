@@ -30,7 +30,7 @@ pipeline {
       steps {
         script {         
           sh '''
-            kubectl get deploy          
+            kubectl set image deployment/rds-tester container-0="swr.ru-moscow-1.hc.sbercloud.ru/$baseImage:$BUILD_NUMBER"          
           '''          
         }
       }
