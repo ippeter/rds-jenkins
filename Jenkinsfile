@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    baseImage = "ippeter/rds-tester"
+    baseImage = "cloud-devops/rds-tester"
     swrCredentials = "SWRLogin2"
   }
   
@@ -19,7 +19,7 @@ pipeline {
     stage('Push Image') {
       steps {
         script {
-          docker.withRegistry('https://swr.ru-moscow-1.hc.sbercloud.ru/cloud-devops/', swrCredentials ) {
+          docker.withRegistry('https://swr.ru-moscow-1.hc.sbercloud.ru/', swrCredentials ) {
             dockerImage.push()
           }
         }
