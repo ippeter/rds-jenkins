@@ -25,6 +25,16 @@ pipeline {
         }
       }
     }
+    
+    stage('Update Deployment') {
+      steps {
+        script {         
+          sh '''
+            kubectl get deploy          
+          '''          
+        }
+      }
+    }
 
   }
 }
